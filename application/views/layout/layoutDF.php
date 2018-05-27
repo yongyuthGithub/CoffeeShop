@@ -54,10 +54,10 @@
                             <li>
                                 <a href="#">Setting</a>
                                 <ul>
-                                    <li><a href="#">Product List</a></li>
-                                    <li><a href="#">Condition</a></li>
-                                    <li><a href="#">User</a></li>
-                                    <li><a href="#">Profile Management</a></li>
+                                    <li><a href="<?php echo base_url('ProductList'); ?>">Product List</a></li>
+                                    <li><a href="<?php echo base_url('Condition'); ?>">Condition</a></li>
+                                    <li><a href="<?php echo base_url('User'); ?>">User</a></li>
+                                    <li><a href="<?php echo base_url('ProfileManagement'); ?>">Profile Management</a></li>
                                 </ul>
                             </li>
                             <!--<li><a href="left-sidebar.html">Left Sidebar</a></li>-->
@@ -71,6 +71,14 @@
 
             <!-- Intro -->
             <?php $this->load->view($page); ?>
+
+            <!-- Basket -->
+            <div id="intro-wrapper" class="wrapper style3">
+                <div class="title">Basket</div>
+                <section id="intro" class="container">
+
+                </section>
+            </div>
 
             <!-- Footer -->
             <div id="footer-wrapper" class="wrapper">
