@@ -26,9 +26,9 @@ class Welcome extends PCenter {
 
     public function index() {
 //		$this->load->view('welcome_message');
-        $data['page'] = 'setting/home/login';
+        $data['page'] = 'home';
         $data['seturl'] = !isset($_POST['loginUrl']) ? 0 : $_POST['loginUrl'];
-        $this->load->view('layout/nav', $data);
+        $this->load->view('layout/layoutDF', $data);
     }
 
     public function index2() {
