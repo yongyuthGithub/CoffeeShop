@@ -1349,7 +1349,7 @@ button,
     font-weight: 700;
     letter-spacing: 0.25em;
     text-decoration: none;
-    border-radius: 0.35em;
+    /*border-radius: 0.35em;*/
     border: 0;
     outline: 0;
     cursor: pointer;
@@ -2337,7 +2337,7 @@ ol.default li {
     button,
     .button {
         display: block;
-        width: 100%;
+        /*width: 100%;*/
         font-size: 1em;
         padding: 1em 0 1em 0;
         max-width: 30em;
@@ -2712,4 +2712,25 @@ button{
     min-width: auto!important;
     height: auto!important;
     letter-spacing: 0px!important;
+}
+
+.mypages-tabpage ul > li:not(:last-child){
+    padding-right: 5px;
+}
+
+.modal-content{
+    border-radius: 3px;
+    background:#f3f3f3 url("images/overlay.png");
+}
+.modal-header{
+    border-bottom:0px;
+}
+.modal-footer{
+    border-top:0px;
+}
+.modal-footer button{
+    font-weight: normal;
+}
+#titleBar{
+    z-index: 1000;
 }

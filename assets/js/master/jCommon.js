@@ -895,7 +895,8 @@ function ChkNumber(v) {
     $.fn.mypages = function (option) {
         var setting = $.extend({
             itemsOnPage: 10,
-            cssStyle: 'light-theme',
+//            cssStyle: 'light-theme',
+//            cssStyle: 'black',
             //onPageClick: function (pageNumber, event) { },
             //data: new Array(),
             htmlRender: function (data) { },

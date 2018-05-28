@@ -2,21 +2,40 @@
 
     //var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+//    function btnType(v) {
+////        var vReturn = 'pmd-btn-raised pmd-ripple-effect ';
+//        var vReturn = '';
+//        if (v === BootstrapDialog.TYPE_INFO) {
+//            vReturn = vReturn + 'btn-info';
+//        } else if (v === BootstrapDialog.TYPE_PRIMARY) {
+//            vReturn = vReturn + 'btn-primary';
+//        } else if (v === BootstrapDialog.TYPE_SUCCESS) {
+//            vReturn = vReturn + 'btn-success';
+//        } else if (v === BootstrapDialog.TYPE_WARNING) {
+//            vReturn = vReturn + 'btn-warning';
+//        } else if (v === BootstrapDialog.TYPE_DANGER) {
+//            vReturn = vReturn + 'btn-danger';
+//        } else {
+//            vReturn = vReturn + 'btn-default';
+//        }
+//        return vReturn;
+//    }
     function btnType(v) {
-//        var vReturn = 'pmd-btn-raised pmd-ripple-effect ';
         var vReturn = '';
         if (v === BootstrapDialog.TYPE_INFO) {
-            vReturn = vReturn + 'btn-info';
+            vReturn = vReturn + 'blue';
         } else if (v === BootstrapDialog.TYPE_PRIMARY) {
-            vReturn = vReturn + 'btn-primary';
+            vReturn = vReturn + 'blue';
         } else if (v === BootstrapDialog.TYPE_SUCCESS) {
-            vReturn = vReturn + 'btn-success';
+            vReturn = vReturn + 'green';
         } else if (v === BootstrapDialog.TYPE_WARNING) {
-            vReturn = vReturn + 'btn-warning';
+            vReturn = vReturn + 'purple';
         } else if (v === BootstrapDialog.TYPE_DANGER) {
-            vReturn = vReturn + 'btn-danger';
+            vReturn = vReturn + 'red';
+        } else if (v === BootstrapDialog.TYPE_BLACK) {
+            vReturn = vReturn + 'black';
         } else {
-            vReturn = vReturn + 'btn-default';
+            vReturn = vReturn + '';
         }
         return vReturn;
     }
@@ -40,7 +59,7 @@
         var setting = $.extend({
             title: '',
             url: '',
-            type: BootstrapDialog.TYPE_PRIMARY,
+            type: BootstrapDialog.TYPE_BLACK,
             closable: true,
             buttons: new Array(),
             data: new Object(),
@@ -84,7 +103,7 @@
         BootstrapDialog.show({
             //title: '<i class="fa fa-comments-o fa-1x">&nbsp;&nbsp;</i>' + setting.title,
             //title: '<div style="font-size:180%;" class="' + textType(setting.type) + '">' + setting.title + '</div>',
-            title: '<span style="margin: 0px;">' + setting.title + '</span>',
+            title: '<span style="margin: 0px;color:#555;">' + setting.title + '</span>',
             message: $('<div class="bPopup" style="width:auto;"></div>').load(setting.url),
             type: setting.type,
             closable: setting.closable,

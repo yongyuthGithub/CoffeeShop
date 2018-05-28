@@ -18,7 +18,9 @@
         <?php echo css_asset('master/checkbox_radiobox.css') ?>
         <?php echo css_asset('master/material_switch.css') ?>
         <?php echo css_asset('master/bootstrap-datetimepicker.min.css') ?>
-        <?php echo css_asset('master/simplePagination.css') ?>
+        <?php echo css_asset('master/m-icons.min.css') ?>
+        <?php echo css_asset('master/m-buttons.min.css') ?>
+        <?php echo css_asset('master/simplePagination.css') ?>        
         <?php echo css_asset('master/main.css') ?>
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
@@ -39,7 +41,7 @@
         <?php echo js_asset('master/moment.min.js') ?>
         <?php echo js_asset('master/locales.min.js') ?>
         <?php echo js_asset('master/bootstrap-datetimepicker.min.js') ?>
-        <?php echo js_asset('master/bootstrap-dialog.min.js') ?>
+        <?php echo js_asset('master/bootstrap-dialog-m-btn.min.js') ?>
         <?php echo js_asset('master/jBootstrap-dialog.js') ?>
         <?php echo js_asset('master/loadingoverlay.min.js') ?>
         <?php echo js_asset('master/loadingoverlay_progress.min.js') ?>

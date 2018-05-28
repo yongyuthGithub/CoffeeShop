@@ -6,7 +6,7 @@ $(function () {
             var _html = '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 panel-group">';
             _html += '<div class="panel panel-default">';
             _html += '<div class="panel-body"><span>Panel Content ' + d.id + '</span>';
-            _html += '<div class="text-right"><div class="btn btn-success btn-ok">ทดสอบระบบ</div></div>';
+            _html += '<div class="text-right"><div class="m-btn blue-stripe btn-ok">ทดสอบระบบ <i class="icon-headphones"></i></div></div>';
             _html += '</div>';
             _html += '</div>';
             _html += '</div>';
@@ -50,7 +50,7 @@ $(function () {
                         url: mvcPatch('Menu/edit'),
                         title: 'รายการที่ '.concat(d.id),
                         closable: false,
-                        size: BootstrapDialog.SIZE_NORMAL,
+                        size: BootstrapDialog.SIZE_WIDE,
                         onshow: function (k) {
                             k.getModal().data({
                                 data: new Object({key: Guid}),
