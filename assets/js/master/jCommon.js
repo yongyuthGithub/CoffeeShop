@@ -77,8 +77,8 @@ function addCommas(nStr, point) {
 }
 
 function precisionRound(number, precision) {
-  var factor = Math.pow(10, precision);
-  return Math.round(number * factor) / factor;
+    var factor = Math.pow(10, precision);
+    return Math.round(number * factor) / factor;
 }
 
 var ImageStatus = {
@@ -847,6 +847,162 @@ function ChkNumber(v) {
                 if (setting.loandingclose)
                     $.myLoading('hide');
             }
+        });
+    }
+
+    $.reqDataAsync = function (option) {
+        var setting = $.extend({
+            url: '',
+            callback: function () { },
+            data: {},
+            loanding: true,
+            loandingclose: true,
+            type: 'post',
+            Credentials: false,
+            cache: true,
+            processData: true,
+            maxrow: 100,
+        }, option);
+
+        if (setting.loanding)
+            $.myLoading();
+
+        setting.data._srow = 0;
+        setting.data._nrow = setting.maxrow;
+
+        var _array = new Array();
+        getData();
+        function getData() {
+            $.reqData({
+                url: setting.url,
+                data: setting.data,
+                loanding: false,
+                callback: function (vdata) {
+                    Array.prototype.push.apply(_array, vdata);
+                    if (vdata.length === setting.maxrow) {
+                        setting.data._srow += (vdata.length);
+                        getData();
+                    } else {
+                        setting.callback(_array);
+                        if (setting.loandingclose)
+                            $.myLoading('hide');
+                    }
+                }
+            });
+        }
+    }
+
+    $.fn.mypages = function (option) {
+        var setting = $.extend({
+            itemsOnPage: 10,
+            cssStyle: 'light-theme',
+            //onPageClick: function (pageNumber, event) { },
+            //data: new Array(),
+            htmlRender: function (data) { },
+            funHtmlRender: function (thisobject) { },
+            align: 'right',
+            data: {
+                type: 'json', //json,ajax
+                jsonData: new Array(),
+                url: '',
+                data: new Object()
+            },
+            maxrow: 100,
+            funAutoData: function () { },
+            customClassItem: 'pageitem',
+            displayfull: true
+        }, option);
+
+        return this.each(function () {
+            var _this = $(this);
+            var _classFull = setting.displayfull ? 'col-xs-12' : '';
+            _this.empty().append('<div class="mypages-detail"></div><div style="text-align:' + setting.align + ';" class="' + _classFull + ' myp"><div class="mypages-tabpage" style="display: inline-block;padding-right: 0px;"></div></div>');
+//            if (setting.displayfull)
+//                _this.find('.mypages-detail').wrap('<div class="row"></div>');
+
+            var _divDetail = _this.find('.mypages-detail');
+            var _divTabPage = _this.find('.mypages-tabpage');
+            if (setting.data.type === 'json') {
+                _this.data('data', setting.data.jsonData);
+
+                _divTabPage.pagination({
+                    items: _this.data('data').length,
+                    itemsOnPage: setting.itemsOnPage,
+                    cssStyle: setting.cssStyle,
+                    onPageClick: function (p, e) {
+                        genPage(p, e);
+                    },
+
+                });
+                genPage(1);
+            } else if (setting.data.type === 'ajax') {
+                _this.data('data', new Array());
+                _divTabPage.pagination({
+                    items: 0,
+                    itemsOnPage: setting.itemsOnPage,
+                    cssStyle: setting.cssStyle,
+                    onPageClick: function (p, e) {
+                        genPage(p, e);
+                    },
+                });
+
+                setting.data.data._srow = 0;
+                setting.data.data._nrow = setting.maxrow;
+                genPage(1);
+
+                getData();
+                function getData() {
+                    $.reqData({
+                        url: setting.data.url,
+                        data: setting.data.data,
+                        loanding: false,
+                        callback: function (vdata) {
+                            Array.prototype.push.apply(_this.data('data'), vdata);
+                            _divTabPage.pagination('updateItems', _this.data('data').length);
+                            //if (setting.data.data._srow === 0)
+                            //    genPage(1);
+
+                            if (vdata.length === setting.maxrow) {
+                                setting.data.data._srow += (vdata.length);
+                                getData();
+                            } else {
+                                genPage(1);
+                            }
+                        }
+                    });
+                }
+            }
+
+            function genPage(p, e) {
+                _divDetail.empty();
+
+                var _data = _this.data('data');
+                if (_data.length === 0) {
+                    _this.css({'display': 'none'});
+                } else {
+                    _this.css({'display': 'block'});
+                }
+
+                var _s = (setting.itemsOnPage * p) - (setting.itemsOnPage);
+                for (var i = _s; i < (setting.itemsOnPage * p); i++) {
+                    try {
+                        _divDetail.append('<div data-id="r' + i + '" class="' + setting.customClassItem + '">' + setting.htmlRender(_data[i]) + '</div>').find('[data-id=r' + i + ']').each(function (k, v) {
+                            setting.funHtmlRender($(v),_data[i]);
+                        });
+                    } catch (e) {
+                        return;
+                    }
+                }
+            }
+
+            setting.funAutoData(_this, function (numrow) {
+                _divTabPage.pagination('updateItems', numrow);
+                var _pageThis = _divTabPage.pagination('getCurrentPage');
+                if (_divTabPage.pagination('getPagesCount') < _pageThis)
+                    _pageThis = _divTabPage.pagination('getPagesCount');
+                genPage(_pageThis);
+            });
+
         });
     }
 

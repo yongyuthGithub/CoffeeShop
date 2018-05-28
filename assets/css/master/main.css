@@ -2707,3 +2707,9 @@ ol.default li {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+button{
+    min-width: auto!important;
+    height: auto!important;
+    letter-spacing: 0px!important;
+}

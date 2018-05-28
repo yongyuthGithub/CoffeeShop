@@ -3,7 +3,8 @@
     //var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     function btnType(v) {
-        var vReturn = 'pmd-btn-raised pmd-ripple-effect ';
+//        var vReturn = 'pmd-btn-raised pmd-ripple-effect ';
+        var vReturn = '';
         if (v === BootstrapDialog.TYPE_INFO) {
             vReturn = vReturn + 'btn-info';
         } else if (v === BootstrapDialog.TYPE_PRIMARY) {
@@ -83,7 +84,7 @@
         BootstrapDialog.show({
             //title: '<i class="fa fa-comments-o fa-1x">&nbsp;&nbsp;</i>' + setting.title,
             //title: '<div style="font-size:180%;" class="' + textType(setting.type) + '">' + setting.title + '</div>',
-            title: '<h3 style="margin: 0px;">' + setting.title + '</h3>',
+            title: '<span style="margin: 0px;">' + setting.title + '</span>',
             message: $('<div class="bPopup" style="width:auto;"></div>').load(setting.url),
             type: setting.type,
             closable: setting.closable,
@@ -111,10 +112,10 @@
             buttonOK: function (k) {
                 k.close();
             },
-            size: BootstrapDialog.SIZE_NORMAL
+            size: BootstrapDialog.SIZE_WIDE
         }, option);
         BootstrapDialog.show({
-            title: '<h3 style="margin: 0px;" class="' + textType(setting.type) + '">' + setting.title + '</h3>',
+            title: '<span style="margin: 0px;" class="' + textType(setting.type) + '">' + setting.title + '</span>',
             message: '<div style="padding:0px 0px 30px 0px;" class="' + textType(setting.type) + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + setting.message + '</div>',
             type: setting.type,
             closable: setting.closable,
@@ -145,7 +146,7 @@
         }, option);
 
         BootstrapDialog.show({
-            title: '<h3 style="margin: 0px;" class="' + textType(setting.type) + '">' + setting.title + '</h3>',
+            title: '<span style="margin: 0px;" class="' + textType(setting.type) + '">' + setting.title + '</span>',
             message: '<div style="padding:0px 0px 30px 0px;" class="' + textType(setting.type) + '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + setting.message + '</div>',
             type: setting.type,
             closable: setting.closable,

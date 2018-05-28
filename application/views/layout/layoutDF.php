@@ -11,8 +11,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
+        <?php echo css_asset('master/bootstrap.min.css') ?>
+        <?php echo css_asset('master/jquery.dataTables.min.css') ?>
+        <?php echo css_asset('master/responsive.dataTables.min.css') ?>
+        <?php echo css_asset('master/bootstrap-select.min.css') ?>
+        <?php echo css_asset('master/checkbox_radiobox.css') ?>
+        <?php echo css_asset('master/material_switch.css') ?>
+        <?php echo css_asset('master/bootstrap-datetimepicker.min.css') ?>
+        <?php echo css_asset('master/simplePagination.css') ?>
         <?php echo css_asset('master/main.css') ?>
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+        <!-- Scripts -->
+        <?php echo js_asset('master/jquery.min.js') ?>
+        <?php echo js_asset('master/bootstrap.min.js') ?>
+        <?php echo js_asset('master/jquery.dropotron.min.js') ?>
+        <?php echo js_asset('master/skel.min.js') ?>
+        <?php echo js_asset('master/skel-viewport.min.js') ?>
+        <?php echo js_asset('master/util.js') ?>
+        <?php echo js_asset('master/jquery.cookie.js') ?>
+        <?php echo js_asset('master/linq.min.js') ?>
+        <?php echo js_asset('master/formValidation.min.js') ?>
+        <?php echo js_asset('master/bootstrap_validation.js') ?>
+        <?php echo js_asset('master/jquery.dataTables.min.js') ?>
+        <?php echo js_asset('master/dataTables.responsive.min.js') ?>
+        <?php echo js_asset('master/bootstrap-select.min.js') ?>
+        <?php echo js_asset('master/moment.min.js') ?>
+        <?php echo js_asset('master/locales.min.js') ?>
+        <?php echo js_asset('master/bootstrap-datetimepicker.min.js') ?>
+        <?php echo js_asset('master/bootstrap-dialog.min.js') ?>
+        <?php echo js_asset('master/jBootstrap-dialog.js') ?>
+        <?php echo js_asset('master/loadingoverlay.min.js') ?>
+        <?php echo js_asset('master/loadingoverlay_progress.min.js') ?>
+        <?php echo js_asset('master/moment.min.js') ?>
+        <?php echo js_asset('master/locales.min.js') ?>
+        <?php echo js_asset('master/bootstrap-datetimepicker.min.js') ?>
+        <?php echo js_asset('master/highcharts.js') ?>
+        <?php echo js_asset('master/highcharts-more.js') ?>
+        <?php echo js_asset('master/jquery.simplePagination.js') ?>
+        <?php echo js_asset('master/jCustomPageMain.js') ?>
+        <?php echo js_asset('master/jCommon.js') ?>
+        <?php echo js_asset('master/main.js') ?>
+
     </head>
     <body class="left-sidebar">
         <div id="page-wrapper">
@@ -58,6 +98,7 @@
                                     <li><a href="<?php echo base_url('Condition'); ?>">Condition</a></li>
                                     <li><a href="<?php echo base_url('User'); ?>">User</a></li>
                                     <li><a href="<?php echo base_url('ProfileManagement'); ?>">Profile Management</a></li>
+                                    <li><a href="<?php echo base_url('Menu'); ?>">Menu System</a></li>
                                 </ul>
                             </li>
                             <!--<li><a href="left-sidebar.html">Left Sidebar</a></li>-->
@@ -184,12 +225,6 @@
 
         </div>
 
-        <!-- Scripts -->
-        <?php echo js_asset('master/jquery.min.js') ?>
-        <?php echo js_asset('master/jquery.dropotron.min.js') ?>
-        <?php echo js_asset('master/skel.min.js') ?>
-        <?php echo js_asset('master/skel-viewport.min.js') ?>
-        <?php echo js_asset('master/util.js') ?>
-        <?php echo js_asset('master/main.js') ?>
+        <input type="hidden" id="hidUrl" value="<?php echo base_url(); ?>"/>
     </body>
 </html>
