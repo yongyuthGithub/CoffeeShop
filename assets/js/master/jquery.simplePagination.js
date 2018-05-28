@@ -28,7 +28,7 @@
                 ellipsePageSet: true,
 //                cssStyle: 'light-theme',
                 cssStyle: '',
-                csslink: 'green',
+                csslink: 'black',
                 listStyle: '',
                 labelMap: [],
                 selectOnClick: true,
@@ -198,7 +198,7 @@
                     }
                     if (o.edges < interval.start && (interval.start - o.edges != 1)) {
 //                        $panel.append('<li class="disabled"><span class="ellipse">' + o.ellipseText + '</span></li>');
-                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '-stripe">' + o.ellipseText + '</span></li>');
+                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '">' + o.ellipseText + '</span></li>');
                     } else if (interval.start - o.edges == 1) {
                         methods._appendItem.call(this, o.edges);
                     }
@@ -214,7 +214,7 @@
 
                     if (o.pages - o.edges > interval.end && (o.pages - o.edges - interval.end != 1)) {
 //                        $panel.append('<li class="disabled"><span class="ellipse">' + o.ellipseText + '</span></li>');
-                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '-stripe">' + o.ellipseText + '</span></li>');
+                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '">' + o.ellipseText + '</span></li>');
                     } else if (o.pages - o.edges - interval.end == 1) {
                         methods._appendItem.call(this, interval.end);
                     }
@@ -237,7 +237,7 @@
                 if (interval.end < o.pages && o.edges > 0) {
                     if (o.pages - o.edges > interval.end && (o.pages - o.edges - interval.end != 1)) {
 //                        $panel.append('<li class="disabled"><span class="ellipse">' + o.ellipseText + '</span></li>');
-                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '-stripe">' + o.ellipseText + '</span></li>');
+                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '">' + o.ellipseText + '</span></li>');
                     } else if (o.pages - o.edges - interval.end == 1) {
                         methods._appendItem.call(this, interval.end);
                     }
@@ -252,7 +252,7 @@
                 if (interval.start > 0 && o.edges > 0) {
                     if (o.edges < interval.start && (interval.start - o.edges != 1)) {
 //                        $panel.append('<li class="disabled"><span class="ellipse">' + o.ellipseText + '</span></li>');
-                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '-stripe">' + o.ellipseText + '</span></li>');
+                        $panel.append('<li class="disabled"><span class="ellipse m-btn ' + o.csslink + '">' + o.ellipseText + '</span></li>');
                     } else if (interval.start - o.edges == 1) {
                         methods._appendItem.call(this, o.edges);
                     }
@@ -312,11 +312,11 @@
                     $linkWrapper.addClass('active');
                 }
 //                $link = $('<span class="current">' + (options.text) + '</span>');
-                $link = $('<span class="current m-btn ' + o.csslink + '-stripe disabled">' + (options.text) + '</span>');
+                $link = $('<span class="current m-btn ' + o.csslink + ' disabled">' + (options.text) + '</span>');
             } else {
                 if (o.useAnchors) {
 //                    $link = $('<a href="' + o.hrefTextPrefix + (pageIndex + 1) + o.hrefTextSuffix + '" class="page-link">' + (options.text) + '</a>');
-                    $link = $('<a href="' + o.hrefTextPrefix + (pageIndex + 1) + o.hrefTextSuffix + '" class="m-btn ' + o.csslink + '-stripe">' + (options.text) + '</a>');
+                    $link = $('<a href="' + o.hrefTextPrefix + (pageIndex + 1) + o.hrefTextSuffix + '" class="m-btn ' + o.csslink + '">' + (options.text) + '</a>');
                 } else {
                     $link = $('<span >' + (options.text) + '</span>');
                 }
