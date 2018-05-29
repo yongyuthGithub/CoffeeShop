@@ -116,7 +116,7 @@
             onhidden: setting.onhidden,
             size: setting.size,
             cssClass: setting.cssClass
-        }).getModalBody().find('.bPopup').wrap('<div class="col-xs-12"></div>');//.parent('.pmd-card').wrap('<div class="panel panel-primary"></div>').parents('.modal-content').css({'background-color': '#f5f5f5'});
+        }).getModalBody().find('.bPopup').parent('div').wrap('<div class="panel-body"></div>').parent('div').wrap('<div class="panel panel-default"></div>').parent('div').wrap('<div class="col-xs-12" style="padding-right:0px;padding-left:0px;"></div>');//.parent('.pmd-card').wrap('<div class="panel panel-primary"></div>').parents('.modal-content').css({'background-color': '#f5f5f5'});
         //$('.bPopup').parents('.modal-content').css({
         //    'background-color': '#EEE!important'
         //})

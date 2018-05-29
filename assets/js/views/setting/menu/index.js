@@ -5,15 +5,33 @@ $(function () {
         htmlRender: function (d) {
             var _html = '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 panel-group">';
             _html += '<div class="panel panel-default">';
-            _html += '<div class="panel-body"><span>Panel Content ' + d.id + '</span>';
-            _html += '<div class="text-right"><div class="m-btn blue-stripe btn-ok">ทดสอบระบบ <i class="icon-headphones"></i></div></div>';
+            _html += '<div class="panel-body">';
+            _html += '<h4>' + d.Menu + '</h4>';
+            _html += '<hr style="margin: 0px;">';
+            _html += '<div class="text-left" style="font-size:80%;min-height:120px;max-height:120px;overflow: hidden;text-overflow: ellipsis;"><span style="opacity: .5;">รายละเอียด :</span> ' + d.Description + '<br>';
+            _html += '<span style="opacity: .5;">url :</span>  ' + (checkNull(d.Url) ? '-' : d.Url);
+            _html += '</div>';
+
+            _html += '<hr style="margin: 0px;">';
+            _html += '<div class="text-right">';
+            _html += '<div class="m-btn-group">';
+            _html += '<a class="m-btn dropdown-toggle" data-toggle="dropdown" href="#">';
+            _html += '<i class="fa fa-bars"></i> <span class="caret"></span>';
+            _html += '</a>';
+            _html += '<ul class="m-dropdown-menu" style="min-width:0px;">';
+            _html += '<li class="text-left"><a href="#" style="padding-right:20px;" class="btn-ok">Edit</a></li>';
+            _html += '<li class="text-left"><a href="#" style="padding-right:20px;" class="btn-delete">Delete</a></li>';
+            _html += '</ul>';
+            _html += '</div>';
+            _html += '</div>';
+
             _html += '</div>';
             _html += '</div>';
             _html += '</div>';
             return _html;
         },
         data: {
-            type: 'json', //json,ajax
+            type: 'ajax', //json,ajax
             jsonData: new Array(
                     {id: 1},
                     {id: 2},
@@ -39,7 +57,7 @@ $(function () {
                     {id: 10},
                     {id: 11},
                     {id: 12}, ),
-            url: '',
+            url: mvcPatch('Menu/findMenu'),
             data: new Object()
         },
         itemsOnPage: 20,
@@ -48,9 +66,9 @@ $(function () {
                 click: function () {
                     $.bPopup({
                         url: mvcPatch('Menu/edit'),
-                        title: 'รายการที่ '.concat(d.id),
+                        title: 'เมนู '.concat(d.Menu),
                         closable: false,
-                        size: BootstrapDialog.SIZE_WIDE,
+                        size: BootstrapDialog.SIZE_NORMAL,
                         onshow: function (k) {
                             k.getModal().data({
                                 data: new Object({key: Guid}),

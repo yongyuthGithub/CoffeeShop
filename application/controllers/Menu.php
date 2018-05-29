@@ -18,4 +18,16 @@ class Menu extends PCenter {
     public function edit() {
         $this->load->view('setting/menu/edit');
     }
+
+    public function findMenu() {
+        $qryMenu = $this->db->select('RowKey AS key,'
+                        . ' Menu,'
+                        . ' Description,'
+                        . ' Icon,'
+                        . ' Url,'
+                        . ' Seq')
+                ->get('USRMenu');
+        echo json_encode($qryMenu->result());
+    }
+
 }
