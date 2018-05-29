@@ -103,7 +103,7 @@
         BootstrapDialog.show({
             //title: '<i class="fa fa-comments-o fa-1x">&nbsp;&nbsp;</i>' + setting.title,
             //title: '<div style="font-size:180%;" class="' + textType(setting.type) + '">' + setting.title + '</div>',
-            title: '<span style="margin: 0px;color:#555;">' + setting.title + '</span>',
+            title: '<h1 class="popup-title">' + setting.title + '</h1>',
             message: $('<div class="bPopup" style="width:auto;"></div>').load(setting.url),
             type: setting.type,
             closable: setting.closable,
@@ -116,7 +116,7 @@
             onhidden: setting.onhidden,
             size: setting.size,
             cssClass: setting.cssClass
-        }).getModalBody().find('.bPopup').wrap('<div class=""></div>').parent('.pmd-card').wrap('<div class="panel panel-primary"></div>').parents('.modal-content').css({'background-color': '#f5f5f5'});
+        }).getModalBody().find('.bPopup').wrap('<div class="col-xs-12"></div>');//.parent('.pmd-card').wrap('<div class="panel panel-primary"></div>').parents('.modal-content').css({'background-color': '#f5f5f5'});
         //$('.bPopup').parents('.modal-content').css({
         //    'background-color': '#EEE!important'
         //})
